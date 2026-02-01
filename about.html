@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - EimemesChat AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-fast);
+        }
+        
+        .back-button:hover {
+            background: var(--bg-tertiary);
+            transform: translateX(-2px);
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo-large {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .about-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .about-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-size: 1.6rem;
+        }
+        
+        .section-title i {
+            color: var(--accent-primary);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: var(--bg-tertiary);
+            padding: 25px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-primary);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+        
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .tech-badge {
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .tech-badge.highlight {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: 25px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            border: 3px solid var(--bg-primary);
+        }
+        
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+        
+        .team-role {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .team-bio {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+        
+        .social-link:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 25px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--accent-primary);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .version-info {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-container {
+                padding: 20px;
+            }
+            
+            .about-title {
+                font-size: 2.2rem;
+            }
+            
+            .feature-grid,
+            .team-grid,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <div class="about-container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Chat
+        </a>
+        
+        <div class="about-header">
+            <div class="logo-large">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1 class="about-title">EimemesChat AI</h1>
+            <p class="about-subtitle">Intelligent conversations powered by cutting-edge AI</p>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="section-title">
+                <i class="fas fa-rocket"></i>
+                Our Mission
+            </h2>
+            <p style="line-height: 1.6; color: var(--text-secondary); margin-bottom: 20px;">
+                At EimemesChat AI, we're revolutionizing how people interact with artificial intelligence. 
+                Our mission is to make AI conversations more natural, accessible, and useful for everyone.
+            </p>
+            <p style="line-height: 1.6; color: var(--text-secondary);">
+                We believe that AI should be a tool that empowers human creativity and problem-solving, 
+                not a replacement for human connection. That's why we've built a platform that combines 
+                state-of-the-art language models with an intuitive, human-centric interface.
+            </p>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i>
+                Why Choose EimemesChat AI?
+            </h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">
+                        Powered by Groq's LPU™ inference engine, delivering responses in milliseconds.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Privacy First</h3>
+                    <p class="feature-description">
+                        Your conversations are encrypted and never used for training other models.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">State-of-the-Art AI</h3>
+                    <p class="feature-description">
+                        Access to the latest models including Llama 3, Mixtral, and Gemma.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="feature-title">Developer Friendly</h3>
+                    <p class="feature-description">
+                        Clean API, comprehensive documentation, and easy integration.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="section-title">
+                <i class="fas fa-cogs"></i>
+                Technology Stack
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Built with modern technologies for performance, scalability, and security:
+            </p>
+            
+            <div class="tech-stack">
+                <span class="tech-badge highlight">Groq API</span>
+                <span class="tech-badge">Llama 3</span>
+                <span class="tech-badge">Mixtral 8x7B</span>
+                <span class="tech-badge">Gemma</span>
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Express</span>
+                <span class="tech-badge">Firebase</span>
+                <span class="tech-badge">HTML5/CSS3</span>
+                <span class="tech-badge">JavaScript ES6+</span>
+                <span class="tech-badge">WebSocket</span>
+                <span class="tech-badge">JWT Authentication</span>
+                <span class="tech-badge">Rate Limiting</span>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="section-title">
+                <i class="fas fa-chart-line"></i>
+                Our Impact
+            </h2>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">&lt;100ms</div>
+                    <div class="stat-label">Response Time</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Messages Processed</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2 class="section-title">
+                <i class="fas fa-users"></i>
+                Meet The Team
+            </h2>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="team-name">Alex Chen</h3>
+                    <p class="team-role">Lead Developer</p>
+                    <p class="team-bio">Former Google AI engineer with 10+ years in machine learning.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="team-name">Sarah Johnson</h3>
+                    <p class="team-role">AI Researcher</p>
+                    <p class="team-bio">PhD in Natural Language Processing from Stanford University.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <h3 class="team-name">Marcus Lee</h3>
+                    <p class="team-role">UX Designer</p>
+                    <p class="team-bio">Specializes in creating intuitive interfaces for complex AI systems.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="version-info">
+            <p>EimemesChat AI v1.0.0 • Built with ❤️ for the AI community</p>
+            <p>© 2024 Eimemes Technologies. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Apply theme from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('eimemechat_settings');
+            if (savedTheme) {
+                try {
+                    const settings = JSON.parse(savedTheme);
+                    if (settings.darkMode === false) {
+                        document.body.classList.remove('dark-theme');
+                        document.body.classList.add('light-theme');
+                    }
+                } catch (e) {
+                    console.error('Failed to parse theme settings');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
