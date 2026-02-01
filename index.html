@@ -27,6 +27,17 @@
         }
     </style>
 </head>
+<script>
+// Debug script
+setTimeout(() => {
+    if (document.getElementById('loadingScreen') && 
+        !document.getElementById('loadingScreen').classList.contains('hidden')) {
+        console.error('STUCK ON LOADING!');
+        document.getElementById('loadingScreen').classList.add('hidden');
+        document.getElementById('authScreen').classList.remove('hidden');
+    }
+}, 5000); // Show auth screen after 5 seconds if stuck
+</script>
 <body class="dark-theme">
     <!-- Loading Screen -->
     <div id="loadingScreen" class="loading-screen">
