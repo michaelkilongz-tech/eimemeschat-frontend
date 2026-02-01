@@ -150,21 +150,24 @@ class EimemesChatApp {
             }
         });
     }
-    
     setupAuthListener() {
-        authManager.addListener((event, user) => {
-            if (event === 'login') {
-                this.handleUserLogin(user);
-            } else if (event === 'logout') {
-                this.handleUserLogout();
-            }
-        });
-        
-        // Check initial auth state
-        if (authManager.isAuthenticated()) {
-            this.handleUserLogin(authManager.getCurrentUser());
-        }
-    }
+  console.log('⚠️ Auth bypass enabled - Testing mode');
+  
+  // SKIP Firebase auth, directly show app
+  setTimeout(() => {
+    document.getElementById('authScreen').classList.add('hidden');
+    document.getElementById('appScreen').classList.remove('hidden');
+    
+    // Set dummy user data
+    document.getElementById('userName').textContent = 'Test User';
+    document.getElementById('userEmail').textContent = 'test@eimemechat.ai';
+    
+    this.showToast('Test mode: Chat ready! Try sending a message.', 'success');
+    console.log('✅ App screen shown (auth bypassed)');
+  }, 1500);
+}
+
+
     
     async handleUserLogin(user) {
         try {
