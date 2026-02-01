@@ -1,21 +1,9 @@
-// Firebase Configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCEmylMsBhUPZRbWaj6CcKzD8b5bIY9MK4",
-    authDomain: "eimemeschat.firebaseapp.com",
-    projectId: "eimemeschat",
-    storageBucket: "eimemeschat.firebasestorage.app",
-    messagingSenderId: "224221400348",
-    appId: "1:224221400348:web:45fcb162c3cb5e02f2fed9",
-    measurementId: "G-7FC8HN4R7D"
-    
+  apiKey: "AIzaSyDLhowFRQFzPJjJO2S0UhEQ1ot6Vgt_4_w",
+  authDomain: "dragon-d284d.firebaseapp.com",
+  projectId: "dragon-d284d",
+  storageBucket: "dragon-d284d.firebasestorage.app",
+  messagingSenderId: "609632973806",
+  appId: "1:609632973806:web:a0caa39939a5c2cba154ff",
+  measurementId: "G-0XE8BK2D81"
 };
-
-// Initialize Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-} else {
-    firebase.app(); // if already initialized, use that one
-}
-
-// Services
-window.firebaseAuth = firebase.auth();
